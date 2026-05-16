@@ -24,6 +24,12 @@ import {
   FLEX_REPLY,
   DEFAULT_TEXT_REPLY,
   DODO_REPLY,
+  START_REPLY_1,
+  START_REPLY_2,
+  TEETH_REPLY_2,
+  TEETH_REPLY_1,
+  MEAT_REPLY,
+  SWEET_REPLY,
 } from './replies';
 
 @Injectable()
@@ -91,6 +97,22 @@ export class LineWebhookService {
     const messageEventHandlerMap = {
       text: (message) => {
         const { text } = message;
+        //2026 端午節專屬互動
+        if (text === '端午節快樂')
+          return [
+            this.lineMessageService.createTextMessage(START_REPLY_1),
+            this.lineMessageService.createImageMapMessage(START_REPLY_2),
+          ];
+        if (text === '我是甜粽派')
+          return this.lineMessageService.createImageMapMessage(SWEET_REPLY);
+        if (text === '我是肉粽派')
+          return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
+        if (text === '我是假牙族')
+          return [
+            this.lineMessageService.createImageMapMessage(TEETH_REPLY_1),
+            this.lineMessageService.createImageMapMessage(TEETH_REPLY_2),
+          ];
+        // 測試各種模板消息
         if (text === 'button')
           return this.lineMessageService.createTemplateButtonMessage(
             BUTTON_REPLY,
@@ -154,14 +176,17 @@ export class LineWebhookService {
         }),
     } satisfies Partial<MessageEventHandlerMap>; // 這部分主要是因為目前沒有處理 file 事件
 
-    const handler: (message: EventMessage) => messagingApi.Message =
+    const handler: (
+      message: EventMessage,
+    ) => messagingApi.Message | messagingApi.Message[] =
       messageEventHandlerMap[event.message.type];
 
-    const replyMessage = handler(event.message);
+    const result = handler(event.message);
+    const messages = Array.isArray(result) ? result : [result];
 
     await this.lineClient.replyMessage({
       replyToken: event.replyToken,
-      messages: [replyMessage],
+      messages,
     });
   }
 }

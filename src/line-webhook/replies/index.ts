@@ -6,3 +6,4 @@ export * from './image-map.reply';
 export * from './flex.reply';
 export * from './default-text.reply';
 export * from './dodo.reply';
+export * from './duanwu.reply';
