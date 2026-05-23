@@ -78,7 +78,10 @@ export class LineWebhookService {
   private async handleFollowEvent(event: FollowEvent): Promise<void> {
     await this.lineClient.replyMessage({
       replyToken: event.replyToken,
-      messages: [{ type: 'text', text: '歡迎加入官方帳號！' }],
+      messages: [
+        this.lineMessageService.createTextMessage(START_REPLY_1),
+        this.lineMessageService.createImageMapMessage(START_REPLY_2),
+      ],
     });
   }
 
