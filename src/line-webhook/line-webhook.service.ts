@@ -26,7 +26,6 @@ import {
   DODO_REPLY,
   START_REPLY_1,
   START_REPLY_2,
-  TEETH_REPLY_2,
   TEETH_REPLY_1,
   MEAT_REPLY,
   SWEET_REPLY,
@@ -108,10 +107,7 @@ export class LineWebhookService {
         if (text === '我是肉粽派')
           return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
         if (text === '我是假牙族')
-          return [
-            this.lineMessageService.createImageMapMessage(TEETH_REPLY_1),
-            this.lineMessageService.createImageMapMessage(TEETH_REPLY_2),
-          ];
+          return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
         // 測試各種模板消息
         if (text === 'button')
           return this.lineMessageService.createTemplateButtonMessage(

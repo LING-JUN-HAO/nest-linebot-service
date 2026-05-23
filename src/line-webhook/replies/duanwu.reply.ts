@@ -2,33 +2,60 @@ import { ImageMapMessageReq, TextMessageReq } from 'src/line-message/types';
 
 export const SWEET_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E7%AB%AF%E5%8D%88.002_y8zosf/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-02_gyfngr/png',
   altText: '我是甜粽派',
   baseSize: { width: 1040, height: 768 },
-  actions: [],
+  actions: [
+    {
+      type: 'uri',
+      area: {
+        x: 856,
+        y: 664,
+        width: 160,
+        height: 86,
+      },
+      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+    },
+  ],
 };
 export const MEAT_REPLY: ImageMapMessageReq = {
   altText: '我是肉粽派',
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E7%AB%AF%E5%8D%88.003_g7p9qm/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-03_v1zsxa/png',
   baseSize: { width: 1040, height: 768 },
-  actions: [],
+  actions: [
+    {
+      type: 'uri',
+      area: {
+        x: 856,
+        y: 664,
+        width: 160,
+        height: 86,
+      },
+      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+    },
+  ],
 };
 
 export const TEETH_REPLY_1: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E7%AB%AF%E5%8D%88.004_st5i49/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-04_xtzjdu/png',
   altText: '我是假牙族',
   baseSize: { width: 1040, height: 768 },
-  actions: [],
+  actions: [
+    {
+      type: 'uri',
+      area: {
+        x: 856,
+        y: 664,
+        width: 160,
+        height: 86,
+      },
+      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+    },
+  ],
 };
-export const TEETH_REPLY_2: ImageMapMessageReq = {
-  baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E7%AB%AF%E5%8D%88.005_a1avaz/png',
-  altText: '我是假牙族',
-  baseSize: { width: 1040, height: 350 },
-  actions: [],
-};
+
 export const START_REPLY_1: TextMessageReq = {
   text: `各位鄉親，端午安康！我是牙醫師溫世政。
 
@@ -39,7 +66,7 @@ export const START_REPLY_1: TextMessageReq = {
 };
 export const START_REPLY_2: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E7%AB%AF%E5%8D%88.001_ca0zep/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-01_path7w/png',
   altText: '端午節',
   baseSize: {
     width: 1040,
@@ -49,30 +76,30 @@ export const START_REPLY_2: ImageMapMessageReq = {
     {
       type: 'message',
       area: {
-        x: 192,
-        y: 554,
-        width: 190,
-        height: 114,
+        x: 116,
+        y: 637,
+        width: 248,
+        height: 111,
       },
       text: '我是甜粽派',
     },
     {
       type: 'message',
       area: {
-        x: 424,
-        y: 555,
-        width: 191,
-        height: 112,
+        x: 395,
+        y: 638,
+        width: 261,
+        height: 110,
       },
       text: '我是肉粽派',
     },
     {
       type: 'message',
       area: {
-        x: 656,
-        y: 554,
-        width: 190,
-        height: 114,
+        x: 677,
+        y: 637,
+        width: 262,
+        height: 113,
       },
       text: '我是假牙族',
     },
