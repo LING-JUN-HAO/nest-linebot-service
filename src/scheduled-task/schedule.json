@@ -1,0 +1,11 @@
+{
+  "schedules": [
+    {
+      "date": "2026-05-30",
+      "time": "15:40",
+      "messages": [
+        "DUANWU_START"
+      ]
+    }
+  ]
+}
