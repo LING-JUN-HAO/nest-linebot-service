@@ -57,7 +57,7 @@ export const TEETH_REPLY_1: ImageMapMessageReq = {
 };
 
 export const START_REPLY_1: TextMessageReq = {
-  text: `各位鄉親，端午安康！我是牙醫師溫世政。
+  text: `各位鄉親，端午安康！我是牙醫師温世政。
 
 「囝仔返鄉，照顧家鄉」，我準備了端午護牙互動小知識，讓專業醫療走入生活、守護每一代人的笑容。
 
