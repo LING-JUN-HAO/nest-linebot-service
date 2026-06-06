@@ -16,14 +16,6 @@ import {
   WebhookEventHandlerMap,
 } from './line-webhook.types';
 import {
-  BUTTON_REPLY,
-  CONFIRM_REPLY,
-  CAROUSEL_REPLY,
-  IMAGE_CAROUSEL_REPLY,
-  IMAGE_MAP_REPLY,
-  FLEX_REPLY,
-  DEFAULT_TEXT_REPLY,
-  DODO_REPLY,
   START_REPLY_1,
   START_REPLY_2,
   TEETH_REPLY_1,
@@ -111,35 +103,6 @@ export class LineWebhookService {
           return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
         if (text === '我是假牙族')
           return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
-        // 測試各種模板消息
-        if (text === 'button')
-          return this.lineMessageService.createTemplateButtonMessage(
-            BUTTON_REPLY,
-          );
-        if (text === 'confirm')
-          return this.lineMessageService.createTemplateConfirmMessage(
-            CONFIRM_REPLY,
-          );
-        if (text === 'dodo')
-          return this.lineMessageService.createTemplateConfirmMessage(
-            DODO_REPLY,
-          );
-        if (text === 'carousel')
-          return this.lineMessageService.createTemplateCarouselMessage<1>(
-            CAROUSEL_REPLY,
-          );
-        if (text === 'imageCarousel')
-          return this.lineMessageService.createTemplateImageCarouselMessage(
-            IMAGE_CAROUSEL_REPLY,
-          );
-        if (text === 'imageMap')
-          return this.lineMessageService.createImageMapMessage(IMAGE_MAP_REPLY);
-        if (text === 'flex')
-          return this.lineMessageService.createFlexMessage(FLEX_REPLY);
-        return this.lineMessageService.createTextMessage({
-          text: message.text,
-          ...DEFAULT_TEXT_REPLY,
-        });
       },
       sticker: () =>
         this.lineMessageService.createStickerMessage({
