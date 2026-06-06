@@ -103,39 +103,7 @@ export class LineWebhookService {
           return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
         if (text === '我是假牙族')
           return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
-      },
-      sticker: () =>
-        this.lineMessageService.createStickerMessage({
-          packageId: '6370',
-          stickerId: '11088018',
-        }),
-      image: () =>
-        this.lineMessageService.createImageMessage({
-          previewImageUrl:
-            'https://res.cloudinary.com/dseg0uwc9/image/upload/v1752220509/2025%20IT%20%E9%90%B5%E4%BA%BA%E8%B3%BD/569400594147311960.jpg',
-          originalContentUrl:
-            'https://res.cloudinary.com/dseg0uwc9/image/upload/v1752220509/2025%20IT%20%E9%90%B5%E4%BA%BA%E8%B3%BD/569400594147311960.jpg',
-        }),
-      video: () =>
-        this.lineMessageService.createVideoMessage({
-          previewImageUrl:
-            'https://res.cloudinary.com/dseg0uwc9/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1752220479/2025%20IT%20%E9%90%B5%E4%BA%BA%E8%B3%BD/569400541533438471.jpg',
-          originalContentUrl:
-            'https://res.cloudinary.com/dseg0uwc9/video/upload/v1753430100/test_video_fyraxr.mp4',
-        }),
-      audio: () =>
-        this.lineMessageService.createAudioMessage({
-          originalContentUrl:
-            'https://res.cloudinary.com/dseg0uwc9/video/upload/v1740070405/%E9%90%B5%E4%BA%BA%E8%B3%BD%E8%A6%81%E5%A4%9A%E4%B9%85_pgkjr2.m4a',
-          duration: 11000,
-        }),
-      location: () =>
-        this.lineMessageService.createLocationMessage({
-          title: '東海小確幸黑糖鮮奶波霸（東海總店）',
-          address: '434台中市龍井區台灣大道五段3巷66號',
-          latitude: 24.1815183,
-          longitude: 120.5899484,
-        }),
+      }
     } satisfies Partial<MessageEventHandlerMap>; // 這部分主要是因為目前沒有處理 file 事件
 
     const handler: (
