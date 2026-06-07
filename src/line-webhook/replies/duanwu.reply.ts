@@ -14,7 +14,7 @@ export const SWEET_REPLY: ImageMapMessageReq = {
         width: 160,
         height: 86,
       },
-      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
     },
   ],
 };
@@ -32,7 +32,7 @@ export const MEAT_REPLY: ImageMapMessageReq = {
         width: 160,
         height: 86,
       },
-      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
     },
   ],
 };
@@ -51,7 +51,7 @@ export const TEETH_REPLY_1: ImageMapMessageReq = {
         width: 160,
         height: 86,
       },
-      linkUri: 'https://liff.line.me/2007994878-MGDBvQQg',
+      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
     },
   ],
 };
