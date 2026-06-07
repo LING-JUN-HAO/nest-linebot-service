@@ -103,7 +103,7 @@ export class LineWebhookService {
           return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
         if (text === '我是假牙族')
           return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
-      }
+      },
     } satisfies Partial<MessageEventHandlerMap>; // 這部分主要是因為目前沒有處理 file 事件
 
     const handler: (
