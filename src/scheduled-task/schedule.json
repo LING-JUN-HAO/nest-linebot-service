@@ -1,8 +1,8 @@
 {
   "schedules": [
     {
-      "date": "2026-06-01",
-      "time": "13:00",
+      "date": "2026-06-15",
+      "time": "08:00",
       "messages": [
         "DUANWU_START"
       ]
