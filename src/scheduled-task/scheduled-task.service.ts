@@ -57,7 +57,10 @@ export class ScheduledTaskService {
       await this.lineClient.broadcast({ messages });
       this.logger.info('Broadcast 發送成功');
     } catch (err) {
-      this.logger.error({ err }, `Broadcast 失敗：${err?.message ?? err}`);
+      this.logger.error(
+        { err },
+        `Broadcast 失敗：${err instanceof Error ? err.message : String(err)}`,
+      );
       throw err;
     }
 
