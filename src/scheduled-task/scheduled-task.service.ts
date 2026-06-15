@@ -53,8 +53,13 @@ export class ScheduledTaskService {
       this.resolveMessages(key),
     );
 
-    // TODO: 在此加入發送 LINE push message 的邏輯
-    await this.lineClient.broadcast({ messages });
+    try {
+      await this.lineClient.broadcast({ messages });
+      this.logger.info('Broadcast 發送成功');
+    } catch (err) {
+      this.logger.error({ err }, `Broadcast 失敗：${err?.message ?? err}`);
+      throw err;
+    }
 
     return 'Task executed successfully';
   }
