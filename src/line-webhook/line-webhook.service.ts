@@ -103,6 +103,8 @@ export class LineWebhookService {
           return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
         if (text === '我是假牙族')
           return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
+
+        return null;
       },
     } satisfies Partial<MessageEventHandlerMap>; // 這部分主要是因為目前沒有處理 file 事件
 
@@ -111,7 +113,11 @@ export class LineWebhookService {
     ) => messagingApi.Message | messagingApi.Message[] =
       messageEventHandlerMap[event.message.type];
 
+    if (!handler) return;
+
     const result = handler(event.message);
+    if (!result) return;
+
     const messages = Array.isArray(result) ? result : [result];
 
     await this.lineClient.replyMessage({
