@@ -5,3 +5,9 @@ export interface Schedule {
   time?: string;
   messages: MessageKey[];
 }
+
+export interface ScheduledTaskPayload {
+  lastSuccessAt?: string;
+  now?: string;
+  lookbackMinutes?: number;
+}
