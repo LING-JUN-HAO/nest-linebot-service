@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Body } from '@nestjs/common';
+import { Controller, Post, UseGuards } from '@nestjs/common';
 import { CronSecretGuard } from './cron-secret.guard';
 import { ScheduledTaskService } from './scheduled-task.service';
 
@@ -8,9 +8,7 @@ export class ScheduledTaskController {
 
   @Post()
   @UseGuards(CronSecretGuard)
-  async handleScheduledTask(@Body() body: any) {
-    console.log('收到排程任務：', body);
-    // 處理 line push API
-    return this.scheduledTaskService.runTask(body);
+  async handleScheduledTask() {
+    return this.scheduledTaskService.runTask();
   }
 }
