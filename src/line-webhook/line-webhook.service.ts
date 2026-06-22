@@ -68,13 +68,7 @@ export class LineWebhookService {
    * 用戶首次加入好友或解除封鎖官方帳號時觸發
    */
   private async handleFollowEvent(event: FollowEvent): Promise<void> {
-    await this.lineClient.replyMessage({
-      replyToken: event.replyToken,
-      messages: [
-        this.lineMessageService.createTextMessage(START_REPLY_1),
-        this.lineMessageService.createImageMapMessage(START_REPLY_2),
-      ],
-    });
+    console.log('使用者加入好友：', event.source.userId);
   }
 
   /**
