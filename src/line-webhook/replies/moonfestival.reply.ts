@@ -189,11 +189,14 @@ export const THIRD_N_REPLY: ImageMapMessageReq = {
 
 export const FINAL_REPLY: FlexMessageReq = {
   altText: '小小測驗完成啦！中秋節快樂',
+
   contents: {
     type: 'bubble',
+
     body: {
       type: 'box',
       layout: 'vertical',
+
       contents: [
         {
           type: 'text',
@@ -212,6 +215,7 @@ export const FINAL_REPLY: FlexMessageReq = {
           type: 'text',
           wrap: true,
           margin: 'lg',
+
           contents: [
             {
               type: 'span',
@@ -229,6 +233,7 @@ export const FINAL_REPLY: FlexMessageReq = {
           type: 'text',
           wrap: true,
           margin: 'md',
+
           contents: [
             {
               type: 'span',
@@ -256,7 +261,19 @@ export const FINAL_REPLY: FlexMessageReq = {
           color: '#1E6FD9',
           text: '#温世政 #温醫師 #你認識温醫師嗎 #顧老人顧少年顧腹肚 #南投更好',
         },
+        {
+          type: 'button',
+          margin: 'lg',
+          style: 'primary',
+
+          action: {
+            type: 'uri',
+            label: '分享給朋友玩玩看吧！',
+            uri: 'https://liff.line.me/2010316677-aOR3Scvm',
+          },
+        },
       ],
+
       position: 'relative',
     },
   },
