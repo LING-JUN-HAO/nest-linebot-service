@@ -256,8 +256,112 @@ export const FINAL_REPLY: FlexMessageReq = {
           color: '#1E6FD9',
           text: '#温世政 #温醫師 #你認識温醫師嗎 #顧老人顧少年顧腹肚 #南投更好',
         },
+        {
+          type: 'button',
+          style: 'primary',
+          color: '#00C853',
+          action: {
+            type: 'uri',
+            label: '分享給朋友玩玩看吧！',
+            uri: 'https://liff.line.me/2011622081-De9SToPC?action=share&key=moonquiz',
+          },
+        },
       ],
       position: 'relative',
+    },
+  },
+};
+
+/**
+ * 中秋尋物賀卡 — 聊天室入口卡（螢幕①）
+ *
+ * TODO 上線前要換的兩個東西：
+ *  1. image.url ── 換成實際上傳到 Cloudinary 的入口圖網址
+ *  2. LIFF_URL  ── 目前指向現有 LIFF（2007994878-MGDBvQQg），如另開 LIFF 再換
+ */
+const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#moongame';
+export const HUNT_ENTRY_REPLY_1: TextMessageReq = {
+  text: `🌕温世政祝大家中秋佳節愉快！
+
+月圓人團圓，祝福南投鄉親闔家平安、事事順心！
+
+世政準備了趣味尋寶小遊戲，邀大家一起找玉兔、領取專屬中秋賀卡🥮`,
+};
+export const HUNT_ENTRY_REPLY_2: FlexMessageReq = {
+  altText: '中秋尋物賀卡｜找出藏起來的中秋小物',
+  contents: {
+    type: 'bubble',
+    size: 'giga',
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      paddingAll: 'none',
+      contents: [
+        {
+          type: 'image',
+          url: 'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1789306852/img01_cover_slewoq.png',
+          size: 'full',
+          aspectMode: 'cover',
+          aspectRatio: '1644:734',
+        },
+        {
+          type: 'box',
+          layout: 'vertical',
+          paddingTop: '12px',
+          paddingStart: '16px',
+          paddingEnd: '16px',
+          paddingBottom: '12px',
+          spacing: 'md',
+          contents: [
+            {
+              type: 'text',
+              text: '【南投尋兔趣】找出隱藏玉兔！',
+              weight: 'bold',
+              size: '20px',
+              wrap: true,
+            },
+            {
+              type: 'text',
+              text: '熱鬧的南投廟埕藏了 3 隻調皮玉兔 🐰',
+              wrap: true,
+              size: '17px',
+              color: '#333333',
+            },
+            {
+              type: 'text',
+              text: '點擊畫面把它們全部找出來，即可領取限量中秋賀卡！',
+              wrap: true,
+              size: '17px',
+              color: '#333333',
+            },
+            {
+              type: 'box',
+              layout: 'vertical',
+              height: '48px',
+              backgroundColor: '#00C853',
+              cornerRadius: '999px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 'sm',
+              action: {
+                type: 'uri',
+                label: '立刻開始尋寶',
+                uri: LIFF_URL,
+              },
+              contents: [
+                {
+                  type: 'text',
+                  text: '立刻開始尋寶',
+                  color: '#FFFFFF',
+                  weight: 'bold',
+                  size: '18px',
+                  align: 'center',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
   },
 };
