@@ -263,7 +263,7 @@ export const FINAL_REPLY: FlexMessageReq = {
           action: {
             type: 'uri',
             label: '分享給朋友玩玩看吧！',
-            uri: 'https://liff.line.me/2011622081-De9SToPC?action=share&key=moonquiz',
+            uri: 'https://liff.line.me/2011622081-De9SToPC#share/moonquiz',
           },
         },
       ],

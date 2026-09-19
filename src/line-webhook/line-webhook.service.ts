@@ -27,6 +27,8 @@ import {
   THIRD_Y_REPLY,
   THIRD_N_REPLY,
   FINAL_REPLY,
+  HUNT_ENTRY_REPLY_1,
+  HUNT_ENTRY_REPLY_2,
 } from './replies';
 @Injectable()
 export class LineWebhookService {
@@ -97,6 +99,13 @@ export class LineWebhookService {
       text: (message) => {
         const { text } = message;
         // 2026 中秋節專屬互動
+        // 中秋尋物賀卡
+        if (text === '中秋尋物' || text === '尋物賀卡')
+          return [
+            this.lineMessageService.createTextMessage(HUNT_ENTRY_REPLY_1),
+            this.lineMessageService.createFlexMessage(HUNT_ENTRY_REPLY_2),
+          ];
+
         // First
         if (text === '中秋節快樂')
           return [

@@ -1,59 +1,40 @@
 import { ImageMapMessageReq, TextMessageReq } from 'src/line-message/types';
 
+const RESULT_BASE_SIZE: ImageMapMessageReq['baseSize'] = {
+  width: 1040,
+  height: 768,
+};
+
+const RESULT_ACTIONS: ImageMapMessageReq['actions'] = [
+  {
+    type: 'uri',
+    area: { x: 856, y: 664, width: 160, height: 86 },
+    linkUri: 'https://liff.line.me/2011622081-De9SToPC#share/dawn',
+  },
+];
+
 export const SWEET_REPLY: ImageMapMessageReq = {
   baseUrl:
     'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-02_vmklwm/png',
   altText: '我是甜粽派',
-  baseSize: { width: 1040, height: 768 },
-  actions: [
-    {
-      type: 'uri',
-      area: {
-        x: 856,
-        y: 664,
-        width: 160,
-        height: 86,
-      },
-      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
-    },
-  ],
-};
-export const MEAT_REPLY: ImageMapMessageReq = {
-  altText: '我是肉粽派',
-  baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-03_nio0ba/png',
-  baseSize: { width: 1040, height: 768 },
-  actions: [
-    {
-      type: 'uri',
-      area: {
-        x: 856,
-        y: 664,
-        width: 160,
-        height: 86,
-      },
-      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
-    },
-  ],
+  baseSize: RESULT_BASE_SIZE,
+  actions: RESULT_ACTIONS,
 };
 
-export const TEETH_REPLY_1: ImageMapMessageReq = {
+export const MEAT_REPLY: ImageMapMessageReq = {
+  baseUrl:
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-03_nio0ba/png',
+  altText: '我是肉粽派',
+  baseSize: RESULT_BASE_SIZE,
+  actions: RESULT_ACTIONS,
+};
+
+export const TEETH_REPLY: ImageMapMessageReq = {
   baseUrl:
     'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-04_jemqds/png',
   altText: '我是假牙族',
-  baseSize: { width: 1040, height: 768 },
-  actions: [
-    {
-      type: 'uri',
-      area: {
-        x: 856,
-        y: 664,
-        width: 160,
-        height: 86,
-      },
-      linkUri: 'https://liff.line.me/2010316677-aOR3Scvm',
-    },
-  ],
+  baseSize: RESULT_BASE_SIZE,
+  actions: RESULT_ACTIONS,
 };
 
 export const START_REPLY_1: TextMessageReq = {
