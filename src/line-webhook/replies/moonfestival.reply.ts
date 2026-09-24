@@ -263,7 +263,7 @@ export const FINAL_REPLY: FlexMessageReq = {
           action: {
             type: 'uri',
             label: '分享給朋友玩玩看吧！',
-            uri: 'https://liff.line.me/2011622081-De9SToPC#share/moonquiz',
+            uri: 'https://liff.line.me/2010316677-aOR3Scvm#share/moonquiz',
           },
         },
       ],
@@ -277,9 +277,9 @@ export const FINAL_REPLY: FlexMessageReq = {
  *
  * TODO 上線前要換的兩個東西：
  *  1. image.url ── 換成實際上傳到 Cloudinary 的入口圖網址
- *  2. LIFF_URL  ── 目前指向現有 LIFF（2007994878-MGDBvQQg），如另開 LIFF 再換
+ *  2. LIFF_URL  ── 目前指向 LIFF 2010316677-aOR3Scvm
  */
-const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#moongame';
+const LIFF_URL = 'https://liff.line.me/2010316677-aOR3Scvm#moongame';
 export const HUNT_ENTRY_REPLY_1: TextMessageReq = {
   text: `🌕温世政祝大家中秋佳節愉快！
 

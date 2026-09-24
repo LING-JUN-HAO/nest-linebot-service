@@ -9,7 +9,7 @@ const RESULT_ACTIONS: ImageMapMessageReq['actions'] = [
   {
     type: 'uri',
     area: { x: 856, y: 664, width: 160, height: 86 },
-    linkUri: 'https://liff.line.me/2011622081-De9SToPC#share/dawn',
+    linkUri: 'https://liff.line.me/2010316677-aOR3Scvm#share/dawn',
   },
 ];
 
