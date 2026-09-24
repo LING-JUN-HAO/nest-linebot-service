@@ -78,8 +78,11 @@ export class LineWebhookService {
     await this.lineClient.replyMessage({
       replyToken: event.replyToken,
       messages: [
-        this.lineMessageService.createTextMessage(START_REPLY_1),
-        this.lineMessageService.createImageMapMessage(START_REPLY_2),
+        this.lineMessageService.createTextMessage(HUNT_ENTRY_REPLY_1),
+        // createFlexMessage 回傳舊版 SDK 型別，與 messagingApi.Message 結構相同
+        this.lineMessageService.createFlexMessage(
+          HUNT_ENTRY_REPLY_2,
+        ) as messagingApi.Message,
       ],
     });
   }
