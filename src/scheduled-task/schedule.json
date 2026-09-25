@@ -2,7 +2,7 @@
   "schedules": [
     {
       "messages": [
-        "START"
+        "HUNT_ENTRY"
       ]
     }
   ]

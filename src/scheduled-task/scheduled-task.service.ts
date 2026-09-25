@@ -3,7 +3,12 @@ import { messagingApi, ClientConfig } from '@line/bot-sdk';
 import { PinoLogger } from 'nestjs-pino';
 import { LINE_CONFIG } from 'src/line-webhook/line-webhook.provider';
 import { LineMessageService } from 'src/line-message/line-message.service';
-import { START_REPLY_1, START_REPLY_2 } from 'src/line-webhook/replies';
+import {
+  START_REPLY_1,
+  START_REPLY_2,
+  HUNT_ENTRY_REPLY_1,
+  HUNT_ENTRY_REPLY_2,
+} from 'src/line-webhook/replies';
 import * as scheduleConfig from './schedule.json';
 import { MessageKey, Schedule } from './scheduled-task.types';
 
@@ -61,6 +66,13 @@ export class ScheduledTaskService {
       START: [
         this.lineMessageService.createTextMessage(START_REPLY_1),
         this.lineMessageService.createImageMapMessage(START_REPLY_2),
+      ],
+      HUNT_ENTRY: [
+        this.lineMessageService.createTextMessage(HUNT_ENTRY_REPLY_1),
+        // createFlexMessage 回傳舊版 SDK 型別，與 messagingApi.Message 結構相同
+        this.lineMessageService.createFlexMessage(
+          HUNT_ENTRY_REPLY_2,
+        ) as messagingApi.Message,
       ],
     };
 
