@@ -44,7 +44,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
               text: '#一股改變南投的力量',
               weight: 'bold',
               size: '20px',
-              color: '#01655B',
+              color: '#222222',
               wrap: true,
             },
             {
@@ -58,7 +58,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
               type: 'box',
               layout: 'vertical',
               height: '50px',
-              backgroundColor: '#06C755',
+              backgroundColor: '#01655B',
               cornerRadius: '999px',
               justifyContent: 'center',
               alignItems: 'center',
