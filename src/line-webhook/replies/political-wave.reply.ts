@@ -1,15 +1,11 @@
 import { TextMessageReq, FlexMessageReq } from 'src/line-message/types';
 
-const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#supportcard';
+const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#changevibe';
 
-// 替換成實際主視覺圖片網址
-const HERO_IMAGE_URL = 'https://i.imgur.com/placeholder.png';
+const HERO_IMAGE_URL = 'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1794013731/%E8%81%8A%E5%A4%A9%E5%AE%A4_jbs2jz.png';
 
 export const LIPP_FOLLOW_REPLY_1: TextMessageReq = {
-  text: `歡迎加入！
-讓改變的力量匯聚成流，希望擴散成波！
-
-30 秒做出你的「政波卡」，成為政波，改變南投！🌊`,
+  text: `讓改變的力量匯聚成流，希望擴散成波！\n\n30 秒做出你的「政波卡」，成為政波，改變南投！🌊`,
 };
 
 export const LIPP_ENTRY_REPLY: FlexMessageReq = {
@@ -21,7 +17,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
       type: 'image',
       url: HERO_IMAGE_URL,
       size: 'full',
-      aspectRatio: '20:13',
+      aspectRatio: '20:9',
       aspectMode: 'cover',
       action: {
         type: 'uri',
@@ -48,7 +44,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
               text: '#一股改變南投的力量',
               weight: 'bold',
               size: '20px',
-              color: '#1d3461',
+              color: '#01655B',
               wrap: true,
             },
             {
