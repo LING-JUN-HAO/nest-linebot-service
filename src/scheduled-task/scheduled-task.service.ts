@@ -1,21 +1,30 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { messagingApi, ClientConfig } from '@line/bot-sdk';
 import { PinoLogger } from 'nestjs-pino';
 import { LINE_CONFIG } from 'src/line-webhook/line-webhook.provider';
 import { LineMessageService } from 'src/line-message/line-message.service';
-import { START_REPLY_1, START_REPLY_2 } from 'src/line-webhook/replies';
+import {
+  START_REPLY_1,
+  START_REPLY_2,
+  LIPP_FOLLOW_REPLY_1,
+  createLippEntryReply,
+} from 'src/line-webhook/replies';
 import * as scheduleConfig from './schedule.json';
 import { MessageKey, Schedule } from './scheduled-task.types';
 
 @Injectable()
 export class ScheduledTaskService {
   private readonly lineClient: messagingApi.MessagingApiClient;
+  private readonly liffId: string;
 
   constructor(
     @Inject(LINE_CONFIG) private readonly lineConfig: ClientConfig,
     private readonly logger: PinoLogger,
     private readonly lineMessageService: LineMessageService,
+    configService: ConfigService,
   ) {
+    this.liffId = configService.getOrThrow<string>('line.liffId');
     this.lineClient = new messagingApi.MessagingApiClient({
       channelAccessToken: this.lineConfig.channelAccessToken,
     });
@@ -62,6 +71,12 @@ export class ScheduledTaskService {
         this.lineMessageService.createTextMessage(START_REPLY_1),
         this.lineMessageService.createImageMapMessage(START_REPLY_2),
       ],
+      CHANGE_VIBE: [
+        this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
+        this.lineMessageService.createFlexMessage(
+          createLippEntryReply(this.liffId),
+        ),
+      ] as messagingApi.Message[],
     };
 
     return messageMap[key] ?? [];

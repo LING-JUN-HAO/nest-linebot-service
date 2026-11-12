@@ -1,9 +1,7 @@
 {
   "schedules": [
     {
-      "messages": [
-        "START"
-      ]
+      "messages": ["CHANGE_VIBE"]
     }
   ]
 }

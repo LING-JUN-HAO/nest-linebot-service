@@ -1,4 +1,4 @@
-export type MessageKey = 'START';
+export type MessageKey = 'START' | 'CHANGE_VIBE';
 
 export interface Schedule {
   messages: MessageKey[];
