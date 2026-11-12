@@ -9,7 +9,7 @@ export const LIPP_FOLLOW_REPLY_1: TextMessageReq = {
 };
 
 export const LIPP_ENTRY_REPLY: FlexMessageReq = {
-  altText: '加入 #一股改變南投的力量',
+  altText: '加入政波，一起成為改變南投的力量',
   contents: {
     type: 'bubble',
     size: 'giga',
@@ -41,7 +41,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
           contents: [
             {
               type: 'text',
-              text: '#一股改變南投的力量',
+              text: '一起成為改變南投的力量',
               weight: 'bold',
               size: '20px',
               color: '#222222',
