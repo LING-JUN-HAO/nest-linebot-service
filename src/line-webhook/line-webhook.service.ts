@@ -8,6 +8,7 @@ import {
   EventMessage,
 } from '@line/bot-sdk';
 import { Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { PinoLogger } from 'nestjs-pino';
 import { LINE_CONFIG } from 'src/line-webhook/line-webhook.provider';
 import { LineMessageService } from 'src/line-message/line-message.service';
@@ -26,22 +27,25 @@ import {
   THIRD_REPLY,
   THIRD_Y_REPLY,
   THIRD_N_REPLY,
-  FINAL_REPLY,
+  createFinalReply,
   HUNT_ENTRY_REPLY_1,
-  HUNT_ENTRY_REPLY_2,
+  createHuntEntryReply2,
   LIPP_FOLLOW_REPLY_1,
-  LIPP_ENTRY_REPLY,
+  createLippEntryReply,
 } from './replies';
 @Injectable()
 export class LineWebhookService {
   private readonly lineClient: messagingApi.MessagingApiClient;
   private readonly blobClient: messagingApi.MessagingApiBlobClient;
+  private readonly liffId: string;
 
   constructor(
     @Inject(LINE_CONFIG) private readonly lineConfig: ClientConfig,
     private readonly logger: PinoLogger,
     private readonly lineMessageService: LineMessageService,
+    configService: ConfigService,
   ) {
+    this.liffId = configService.getOrThrow<string>('line.liffId');
     this.lineClient = new messagingApi.MessagingApiClient({
       channelAccessToken: this.lineConfig.channelAccessToken,
     });
@@ -92,7 +96,9 @@ export class LineWebhookService {
       replyToken: event.replyToken,
       messages: [
         this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
-        this.lineMessageService.createFlexMessage(LIPP_ENTRY_REPLY),
+        this.lineMessageService.createFlexMessage(
+          createLippEntryReply(this.liffId),
+        ),
       ] as messagingApi.Message[],
     });
   }
@@ -115,7 +121,9 @@ export class LineWebhookService {
         if (text === '加入政波' || text === '政波')
           return [
             this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
-            this.lineMessageService.createFlexMessage(LIPP_ENTRY_REPLY),
+            this.lineMessageService.createFlexMessage(
+              createLippEntryReply(this.liffId),
+            ),
           ];
 
         // 2026 中秋節專屬互動
@@ -123,7 +131,9 @@ export class LineWebhookService {
         if (text === '中秋尋物' || text === '尋物賀卡')
           return [
             this.lineMessageService.createTextMessage(HUNT_ENTRY_REPLY_1),
-            this.lineMessageService.createFlexMessage(HUNT_ENTRY_REPLY_2),
+            this.lineMessageService.createFlexMessage(
+              createHuntEntryReply2(this.liffId),
+            ),
           ];
 
         // First
@@ -157,7 +167,9 @@ export class LineWebhookService {
         if (text === '顧老人、顧少年、顧腹肚')
           return [
             this.lineMessageService.createImageMapMessage(THIRD_Y_REPLY),
-            this.lineMessageService.createFlexMessage(FINAL_REPLY),
+            this.lineMessageService.createFlexMessage(
+              createFinalReply(this.liffId),
+            ),
           ];
         if (
           text === '顧自己、顧朋友、顧有錢人' ||
@@ -165,7 +177,9 @@ export class LineWebhookService {
         )
           return [
             this.lineMessageService.createImageMapMessage(THIRD_N_REPLY),
-            this.lineMessageService.createFlexMessage(FINAL_REPLY),
+            this.lineMessageService.createFlexMessage(
+              createFinalReply(this.liffId),
+            ),
           ];
         return null;
       },

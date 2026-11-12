@@ -9,6 +9,7 @@ const configSchema = Joi.object({
   line: Joi.object({
     channelAccessToken: Joi.string().required(), // 字串且必填
     channelSecret: Joi.string().required(), // 字串且必填
+    liffId: Joi.string().required(), // 訊息內 LIFF 連結使用的 LIFF ID
   }).required(), // 必填
 
   // 伺服器基本設定
@@ -30,6 +31,7 @@ export default () => {
     line: {
       channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
       channelSecret: process.env.LINE_CHANNEL_SECRET,
+      liffId: process.env.LIFF_ID,
     },
 
     // 伺服器基本設定

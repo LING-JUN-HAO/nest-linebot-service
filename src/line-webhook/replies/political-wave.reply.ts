@@ -1,14 +1,14 @@
 import { TextMessageReq, FlexMessageReq } from 'src/line-message/types';
+import { liffUrl } from './liff-url';
 
-const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#changevibe';
-
-const HERO_IMAGE_URL = 'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1794013731/%E8%81%8A%E5%A4%A9%E5%AE%A4_jbs2jz.png';
+const HERO_IMAGE_URL =
+  'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1794013731/%E8%81%8A%E5%A4%A9%E5%AE%A4_jbs2jz.png';
 
 export const LIPP_FOLLOW_REPLY_1: TextMessageReq = {
   text: `讓改變的力量匯聚成流，希望擴散成波！\n\n30 秒做出你的「政波卡」，成為政波，改變南投！🌊`,
 };
 
-export const LIPP_ENTRY_REPLY: FlexMessageReq = {
+export const createLippEntryReply = (liffId: string): FlexMessageReq => ({
   altText: '加入政波，一起成為改變南投的力量',
   contents: {
     type: 'bubble',
@@ -22,7 +22,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
       action: {
         type: 'uri',
         label: '加入政波',
-        uri: LIFF_URL,
+        uri: liffUrl(liffId, 'changevibe'),
       },
     },
     body: {
@@ -66,7 +66,7 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
               action: {
                 type: 'uri',
                 label: '加入政波',
-                uri: LIFF_URL,
+                uri: liffUrl(liffId, 'changevibe'),
               },
               contents: [
                 {
@@ -84,4 +84,4 @@ export const LIPP_ENTRY_REPLY: FlexMessageReq = {
       ],
     },
   },
-};
+});

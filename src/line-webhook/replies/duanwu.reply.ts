@@ -1,41 +1,42 @@
 import { ImageMapMessageReq, TextMessageReq } from 'src/line-message/types';
+import { liffUrl } from './liff-url';
 
 const RESULT_BASE_SIZE: ImageMapMessageReq['baseSize'] = {
   width: 1040,
   height: 768,
 };
 
-const RESULT_ACTIONS: ImageMapMessageReq['actions'] = [
+const createResultActions = (liffId: string): ImageMapMessageReq['actions'] => [
   {
     type: 'uri',
     area: { x: 856, y: 664, width: 160, height: 86 },
-    linkUri: 'https://liff.line.me/2011622081-De9SToPC#share/dawn',
+    linkUri: liffUrl(liffId, 'share/dawn'),
   },
 ];
 
-export const SWEET_REPLY: ImageMapMessageReq = {
+export const createSweetReply = (liffId: string): ImageMapMessageReq => ({
   baseUrl:
     'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-02_vmklwm/png',
   altText: '我是甜粽派',
   baseSize: RESULT_BASE_SIZE,
-  actions: RESULT_ACTIONS,
-};
+  actions: createResultActions(liffId),
+});
 
-export const MEAT_REPLY: ImageMapMessageReq = {
+export const createMeatReply = (liffId: string): ImageMapMessageReq => ({
   baseUrl:
     'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-03_nio0ba/png',
   altText: '我是肉粽派',
   baseSize: RESULT_BASE_SIZE,
-  actions: RESULT_ACTIONS,
-};
+  actions: createResultActions(liffId),
+});
 
-export const TEETH_REPLY: ImageMapMessageReq = {
+export const createTeethReply = (liffId: string): ImageMapMessageReq => ({
   baseUrl:
     'https://haoyu-linebot.qd513020.workers.dev/imagemap/%E8%AD%B7%E7%89%99-04_jemqds/png',
   altText: '我是假牙族',
   baseSize: RESULT_BASE_SIZE,
-  actions: RESULT_ACTIONS,
-};
+  actions: createResultActions(liffId),
+});
 
 export const START_REPLY_1: TextMessageReq = {
   text: `各位鄉親，端午安康！我是牙醫師温世政。

@@ -3,6 +3,7 @@ import {
   TextMessageReq,
   FlexMessageReq,
 } from 'src/line-message/types';
+import { liffUrl } from './liff-url';
 
 // FRIST
 export const START_REPLY_1: TextMessageReq = {
@@ -187,7 +188,7 @@ export const THIRD_N_REPLY: ImageMapMessageReq = {
   actions: [],
 };
 
-export const FINAL_REPLY: FlexMessageReq = {
+export const createFinalReply = (liffId: string): FlexMessageReq => ({
   altText: '小小測驗完成啦！中秋節快樂',
   contents: {
     type: 'bubble',
@@ -263,23 +264,18 @@ export const FINAL_REPLY: FlexMessageReq = {
           action: {
             type: 'uri',
             label: '分享給朋友玩玩看吧！',
-            uri: 'https://liff.line.me/2011622081-De9SToPC#share/moonquiz',
+            uri: liffUrl(liffId, 'share/moonquiz'),
           },
         },
       ],
       position: 'relative',
     },
   },
-};
+});
 
 /**
  * 中秋尋物賀卡 — 聊天室入口卡（螢幕①）
- *
- * TODO 上線前要換的兩個東西：
- *  1. image.url ── 換成實際上傳到 Cloudinary 的入口圖網址
- *  2. LIFF_URL  ── 目前指向現有 LIFF（2007994878-MGDBvQQg），如另開 LIFF 再換
  */
-const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#moongame';
 export const HUNT_ENTRY_REPLY_1: TextMessageReq = {
   text: `🌕温世政祝大家中秋佳節愉快！
 
@@ -287,7 +283,7 @@ export const HUNT_ENTRY_REPLY_1: TextMessageReq = {
 
 世政準備了趣味尋寶小遊戲，邀大家一起找玉兔、領取專屬中秋賀卡🥮`,
 };
-export const HUNT_ENTRY_REPLY_2: FlexMessageReq = {
+export const createHuntEntryReply2 = (liffId: string): FlexMessageReq => ({
   altText: '中秋尋物賀卡｜找出藏起來的中秋小物',
   contents: {
     type: 'bubble',
@@ -346,7 +342,7 @@ export const HUNT_ENTRY_REPLY_2: FlexMessageReq = {
               action: {
                 type: 'uri',
                 label: '立刻開始尋寶',
-                uri: LIFF_URL,
+                uri: liffUrl(liffId, 'moongame'),
               },
               contents: [
                 {
@@ -364,4 +360,4 @@ export const HUNT_ENTRY_REPLY_2: FlexMessageReq = {
       ],
     },
   },
-};
+});
