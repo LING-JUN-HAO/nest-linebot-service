@@ -5,8 +5,6 @@ import { PinoLogger } from 'nestjs-pino';
 import { LINE_CONFIG } from 'src/line-webhook/line-webhook.provider';
 import { LineMessageService } from 'src/line-message/line-message.service';
 import {
-  START_REPLY_1,
-  START_REPLY_2,
   LIPP_FOLLOW_REPLY_1,
   createLippEntryReply,
 } from 'src/line-webhook/replies';
@@ -67,10 +65,6 @@ export class ScheduledTaskService {
 
   private resolveMessages(key: MessageKey): messagingApi.Message[] {
     const messageMap: Record<MessageKey, messagingApi.Message[]> = {
-      START: [
-        this.lineMessageService.createTextMessage(START_REPLY_1),
-        this.lineMessageService.createImageMapMessage(START_REPLY_2),
-      ],
       CHANGE_VIBE: [
         this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
         this.lineMessageService.createFlexMessage(
