@@ -66,6 +66,17 @@ export class LineWebhookService {
     } satisfies Partial<WebhookEventHandlerMap>;
 
     for (const event of events) {
+      this.logger.info(
+        {
+          userId: event.source.userId,
+          eventType: event.type,
+          text:
+            event.type === 'message' && event.message.type === 'text'
+              ? event.message.text
+              : undefined,
+        },
+        'webhook event',
+      );
       const handler = webhookEventHandlerMap[event.type];
       if (handler) await handler(event);
     }
