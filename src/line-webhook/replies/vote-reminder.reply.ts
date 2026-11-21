@@ -5,7 +5,7 @@ const COVER_IMAGE_URL =
   'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1795237356/%E6%8A%95%E7%A5%A8%E6%8F%90%E9%86%92_%E5%B0%81%E9%9D%A2_anw4kg.png';
 
 export const VOTE_REMINDER_TEXT: TextMessageReq = {
-  text: `大家好，我是温世政！\n投票前，先約家人朋友一起出門吧。\n做一張專屬邀請卡，傳給你最想約的人，我們一起為家鄉加油！`,
+  text: `大家好，我是温世政！\n投票前，先約家人朋友一起出門吧。\n做一張專屬邀請卡，\n\n傳給你最想約的人，我們一起為家鄉加油！`,
 };
 
 export const createVoteReminderReply = (liffId: string): FlexMessageReq => ({
@@ -17,7 +17,7 @@ export const createVoteReminderReply = (liffId: string): FlexMessageReq => ({
       type: 'image',
       url: COVER_IMAGE_URL,
       size: 'full',
-      aspectRatio: '20:13',
+      aspectRatio: '822:367',
       aspectMode: 'cover',
       action: {
         type: 'uri',
@@ -57,7 +57,7 @@ export const createVoteReminderReply = (liffId: string): FlexMessageReq => ({
               type: 'box',
               layout: 'vertical',
               height: '50px',
-              backgroundColor: '#4CAF50',
+              backgroundColor: '#01655B',
               cornerRadius: '999px',
               justifyContent: 'center',
               alignItems: 'center',
