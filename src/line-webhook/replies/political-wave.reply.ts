@@ -2,7 +2,7 @@ import { TextMessageReq, FlexMessageReq } from 'src/line-message/types';
 import { liffUrl } from './liff-url';
 
 const HERO_IMAGE_URL =
-  'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1794013731/%E8%81%8A%E5%A4%A9%E5%AE%A4_jbs2jz.png';
+  'https://res.cloudinary.com/dj4rwmdiu/image/upload/f_jpg,q_auto/v1794013731/%E8%81%8A%E5%A4%A9%E5%AE%A4_jbs2jz.png';
 
 export const LIPP_FOLLOW_REPLY_1: TextMessageReq = {
   text: `讓改變的力量匯聚成流，希望擴散成波！\n\n30 秒做出你的「政波卡」，成為政波，改變南投！🌊`,

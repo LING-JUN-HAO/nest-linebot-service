@@ -295,7 +295,7 @@ export const createHuntEntryReply2 = (liffId: string): FlexMessageReq => ({
       contents: [
         {
           type: 'image',
-          url: 'https://res.cloudinary.com/dj4rwmdiu/image/upload/v1789306852/img01_cover_slewoq.png',
+          url: 'https://res.cloudinary.com/dj4rwmdiu/image/upload/f_jpg,q_auto/v1789306852/img01_cover_slewoq.png',
           size: 'full',
           aspectMode: 'cover',
           aspectRatio: '1644:734',
