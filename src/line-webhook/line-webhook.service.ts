@@ -32,6 +32,8 @@ import {
   createHuntEntryReply2,
   LIPP_FOLLOW_REPLY_1,
   createLippEntryReply,
+  VOTE_REMINDER_TEXT,
+  createVoteReminderReply,
 } from './replies';
 @Injectable()
 export class LineWebhookService {
@@ -117,6 +119,15 @@ export class LineWebhookService {
     const messageEventHandlerMap = {
       text: (message) => {
         const { text } = message;
+        // 投票提醒邀請卡
+        if (text === '投票')
+          return [
+            this.lineMessageService.createTextMessage(VOTE_REMINDER_TEXT),
+            this.lineMessageService.createFlexMessage(
+              createVoteReminderReply(this.liffId),
+            ),
+          ];
+
         // 政波卡
         if (text === '加入政波' || text === '政波')
           return [
