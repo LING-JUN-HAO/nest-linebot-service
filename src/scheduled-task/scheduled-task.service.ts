@@ -5,8 +5,8 @@ import { PinoLogger } from 'nestjs-pino';
 import { LINE_CONFIG } from 'src/line-webhook/line-webhook.provider';
 import { LineMessageService } from 'src/line-message/line-message.service';
 import {
-  LIPP_FOLLOW_REPLY_1,
-  createLippEntryReply,
+  VOTE_REMINDER_TEXT,
+  createVoteReminderReply,
 } from 'src/line-webhook/replies';
 import * as scheduleConfig from './schedule.json';
 import { MessageKey, Schedule } from './scheduled-task.types';
@@ -65,10 +65,10 @@ export class ScheduledTaskService {
 
   private resolveMessages(key: MessageKey): messagingApi.Message[] {
     const messageMap: Record<MessageKey, messagingApi.Message[]> = {
-      CHANGE_VIBE: [
-        this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
+      VOTE_REMINDER: [
+        this.lineMessageService.createTextMessage(VOTE_REMINDER_TEXT),
         this.lineMessageService.createFlexMessage(
-          createLippEntryReply(this.liffId),
+          createVoteReminderReply(this.liffId),
         ),
       ] as messagingApi.Message[],
     };

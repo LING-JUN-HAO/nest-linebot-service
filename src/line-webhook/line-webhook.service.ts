@@ -97,9 +97,9 @@ export class LineWebhookService {
     await this.lineClient.replyMessage({
       replyToken: event.replyToken,
       messages: [
-        this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
+        this.lineMessageService.createTextMessage(VOTE_REMINDER_TEXT),
         this.lineMessageService.createFlexMessage(
-          createLippEntryReply(this.liffId),
+          createVoteReminderReply(this.liffId),
         ),
       ] as messagingApi.Message[],
     });
